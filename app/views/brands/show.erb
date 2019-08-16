@@ -1,4 +1,4 @@
-<h1> ALL THE PRODUCTS </h1>
+<h1> All The Products For <%=@brand.name%> </h1>
 <% @products.each do |product| %>
-    <p><%= product.name %></p>
+    <p><%= link_to product.name, product_path(product) %></p>
 <% end %> 

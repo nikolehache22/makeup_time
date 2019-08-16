@@ -7,7 +7,10 @@ class BrandsController < ApplicationController
     end
 
     def show
-        @products = Product.all
+
+        @brand = Brand.find(params[:id])
+        @products = @brand.products 
+    
     end
 
 end

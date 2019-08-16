@@ -1,0 +1,9 @@
+<% @brand.products.each do |product| %>
+    <p>Product Name: <%= product.name%></p>
+    <p>Product description: <%= product.description%></p>
+    <p>Product Price: $<%= product.price%></p>
+    
+   
+<% end %> 
+
+<p><%= link_to "Leave a Review", new_review_path %></p>
