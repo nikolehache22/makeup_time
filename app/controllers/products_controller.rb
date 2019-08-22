@@ -7,12 +7,9 @@ class ProductsController < ApplicationController
     end
 
     def show
-
-        @brand = Brand.find(params[:id])
+        
         @product = Product.find(params[:id])
-        @reviews = @product.reviews 
-
-
+        @reviews = @product.reviews
     end
     
 end
