@@ -1,13 +1,18 @@
-    <p>Product Name: <%= @product.name%></p>
-    <p>Product description: <%= @product.description%></p>
-    <p>Product Price: $<%= @product.price%></p>
     
-    <%= link_to "Leave A Review", new_brand_product_review_path(@product.brand, @product) %></p>
-    <p> ALL REVIEWS <p>
-    <p>-------------------------</p>
+        <h2> Product Name: <%= @product.name %></h2>
+        <p> Product description: <%= @product.description %></p>
+        <p> Price: $<%= @product.price %></p>
+        <p>----------------------------</p>
 
-    <%  @reviews.each do |review| %>
-        <p>User Name: <%= review.username %></p>
-        <p>Review: <%= review.content %></p>
+        <%= link_to "Leave a Review", new_brand_product_review_path(@product.brand, @product) %>   
+
+<%# the link is going to the reviews#new (the form for the review, GET request, /brands/:brand_id/products/:product_id/reviews/new(.:format)) %>
+
+        <p> REVIEWS <p>
+
+    <% @reviews.each do |review| %>
+        <p> User Name: <%= review.username %></p>
+        <p> Review: <%= review.content %></p>
         <p>-------------------------</p> 
     <% end %>
+

@@ -27,28 +27,26 @@ class ReviewsController < ApplicationController
             flash[:errors] = @review.errors.full_messages
             redirect_to new_brand_product_review_path
         end
-
+        
     end
     
     def update
-        @user = User.find(params[:review][:user_id])
-        @review = Review.find(params[:id])
+       @user = User.find(params[:review][:user_id])
+       @review = Review.find(params[:id])
 
-        if @review.update(review_params)
+       if @review.update(review_params)
             redirect_to user_path(@user)
-        else
+       else
             flash[:errors] = @review.errors.full_messages
             redirect_to edit_brand_product_review_path
-        end
+       end
     end
 
     def destroy
-
         @review = Review.find(params[:id])
         @product = Product.find(params[:product_id])
         @review.destroy
         redirect_to user_path(@review.user)
-
     end
 
     private

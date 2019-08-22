@@ -2,7 +2,8 @@
   <% flash[:errors].each do |error| %>
     <p><%= error %></p>
   <% end %>
-  <% end %>
+<% end %>
+
 
   <%= form_for @review, url: brand_product_reviews_path(@product.brand, @product) do |f| %>
     <%= f.label :content %>
@@ -12,3 +13,7 @@
     <%= f.hidden_field :product_id, :value => @product.id %>
     <%= f.submit "Submit" %>
   <% end %>
+ 
+
+  
+

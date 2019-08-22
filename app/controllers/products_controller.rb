@@ -10,7 +10,6 @@ class ProductsController < ApplicationController
         
         @product = Product.find(params[:id])
         @reviews = @product.reviews
-        
     end
     
 end

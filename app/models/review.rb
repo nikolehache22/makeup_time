@@ -1,8 +1,8 @@
 class Review < ApplicationRecord
   belongs_to :user
   belongs_to :product
-  validates :content, length: { minimum: 10, too_short: ":10 characters is the minimum allowed" }
-  # validates :user, uniqueness: true
+  validates :content, length: { minimum: 5, message: ":Your review wasn't saved because is too short" }
+  
 
   def username
     if user 
@@ -11,9 +11,8 @@ class Review < ApplicationRecord
   end
 
   def username=(name)
-    # user.update(name:name)
-    the_user=User.find_or_create_by(name:name)
-    self.user=the_user
+    the_user = User.find_or_create_by(name:name)
+    self.user = the_user
   end 
 
 end

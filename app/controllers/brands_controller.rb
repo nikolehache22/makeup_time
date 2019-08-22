@@ -8,8 +8,8 @@ class BrandsController < ApplicationController
 
     def show
 
-        @brand = Brand.find(params[:id])
-        @products = @brand.products 
+        @brand = Brand.find(params[:id])  
+        @products = @brand.products
     
     end
 
