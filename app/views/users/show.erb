@@ -1,0 +1,10 @@
+<h1> HELLO <%= @user.name.upcase %>, HERE ARE YOUR REVIEWS</h1>
+<% @user.reviews.each do |review| %>
+    <p>PRODUCT NAME: <%= review.product.name %></p>
+    <p>USERNAME: <%= review.username%></p>
+    <p>REVIEW: <%= review.content %></p>
+    <p><%= link_to "Edit A Review", edit_brand_product_review_path(review.product.brand, review.product, review) if review.product %></p>
+    <p><%= button_to "Delete A Review", brand_product_review_path(review.product.brand, review.product, review), method: :delete, data: { confirm: "Really?" } %></p>
+    <p>----------------</p>
+<% end %> 
+ 

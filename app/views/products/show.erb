@@ -1,9 +1,13 @@
-<% @brand.products.each do |product| %>
-    <p>Product Name: <%= product.name%></p>
-    <p>Product description: <%= product.description%></p>
-    <p>Product Price: $<%= product.price%></p>
+    <p>Product Name: <%= @product.name%></p>
+    <p>Product description: <%= @product.description%></p>
+    <p>Product Price: $<%= @product.price%></p>
     
-   
-<% end %> 
+    <%= link_to "Leave A Review", new_brand_product_review_path(@product.brand, @product) %></p>
+    <p> ALL REVIEWS <p>
+    <p>-------------------------</p>
 
-<p><%= link_to "Leave a Review", new_review_path %></p>
+    <%  @reviews.each do |review| %>
+        <p>User Name: <%= review.username %></p>
+        <p>Review: <%= review.content %></p>
+        <p>-------------------------</p> 
+    <% end %>

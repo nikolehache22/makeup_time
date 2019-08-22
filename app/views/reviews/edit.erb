@@ -1,0 +1,14 @@
+
+  <% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+  <% end %>
+
+  <%= form_for @review, url: brand_product_review_path(@product.brand, @product), method: "PUT" do |f| %>
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+    <%= f.hidden_field :user_id, :value => @review.user_id %>
+    <%= f.hidden_field :product_id, :value => @review.product_id %>
+    <%= f.submit "Edit" %>
+  <% end %>
